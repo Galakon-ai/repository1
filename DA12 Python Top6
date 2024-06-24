@@ -1,0 +1,6 @@
+fb_adds= pd.read_csv('C://Users//galina.kondratieva//.jupyter/facebook_ads_data (2.0).csv', parse_dates=['ad_date'], delimiter=',', encoding='utf-8')
+print(fb_adds.dtypes)
+fb_adds.head()
+
+cmap = sns.diverging_palette(230, 20, as_cmap=True)
+sns.heatmap(df.corr(numeric_only=True), annot=True, fmt='.0%', cmap= 'crest_r')
