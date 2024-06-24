@@ -1,0 +1,15 @@
+import pandas as pd
+import numpy as np
+import matplotlib.pyplot as plt
+import seaborn as sns
+
+fb_adds= pd.read_csv('C://Users//galina.kondratieva//.jupyter/facebook_ads_data (2.0).csv', parse_dates=['ad_date'], delimiter=',', encoding='utf-8')
+print(fb_adds.dtypes)
+fb_adds.head()
+
+fb_adds_corr=fb_adds.loc[:,'total_spend':].corr()
+fig, ax = plt.subplots(1,1, figsize=(20,6))
+sns.heatmap(fb_adds_corr, annot=True, fmt='1.1%', cmap='crest_r', ax=ax)
+
+cmap = sns.diverging_palette(230, 20, as_cmap=True)
+sns.heatmap(fb_adds.corr(numeric_only=True), annot=True, fmt='.0%', cmap= 'crest_r')
